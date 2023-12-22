@@ -5,11 +5,11 @@
 #ifndef ELECTRON_SHELL_BROWSER_UI_VIEWS_ELECTRON_VIEWS_DELEGATE_H_
 #define ELECTRON_SHELL_BROWSER_UI_VIEWS_ELECTRON_VIEWS_DELEGATE_H_
 
-#include <map>
 #include <memory>
 #include <string>
 
 #include "base/compiler_specific.h"
+#include "base/containers/flat_map.h"
 #include "ui/views/views_delegate.h"
 
 namespace electron {
@@ -58,7 +58,7 @@ class ViewsDelegate : public views::ViewsDelegate {
 
  private:
 #if BUILDFLAG(IS_WIN)
-  using AppbarAutohideEdgeMap = std::map<HMONITOR, int>;
+  using AppbarAutohideEdgeMap = base::flat_map<HMONITOR, int>;
 
   // Callback on main thread with the edges. |returned_edges| is the value that
   // was returned from the call to GetAutohideEdges() that initiated the lookup.
